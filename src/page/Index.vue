@@ -1,9 +1,13 @@
 <template>
-  <navbar/>
+  <Navbar/>
+  <SearchBar/>
+  <Card/>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue'
+import Card from '@/components/ItemCard.vue'
+import SearchBar from '@/components/SearchBar.vue'
 
 
 
@@ -14,7 +18,9 @@ export default {
     }
   },
   components: {
-    Navbar
+    Navbar,
+    Card,
+    SearchBar,
   }
 }
 </script>
