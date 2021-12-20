@@ -39,27 +39,28 @@
         <div class="modal fade" :id="'card-' + item.id" tabindex="-1" role="dialog">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-              <form>
+              <form :id="'form-' + item.id">
                 <div class="modal-body">
                     <div class="form-group">
                       <label>商品名稱</label>
-                      <input class="form-control" :value="item.name">
+                      <input class="form-control" name="oldName" type="text" :placeholder="item.name" readonly>
+                      <input class="form-control" name="newName" :value="item.name">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">商品圖片</label>
-                      <input class="form-control" :value="item.imageUrl">
+                      <input  class="form-control" name="imageUrl" :value="item.imageUrl">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">商品價錢</label>
-                      <input class="form-control" :value="item.price">
+                      <input class="form-control" name="price" :value="item.price">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">商品細節</label>
-                      <textarea rows="5" class="form-control" :value="item.description"></textarea>
+                      <textarea name="description" rows="5" class="form-control" :value="item.description"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
-                  <button @click="editItem()" type="submit" class="btn btn-primary" data-dismiss="modal">修改</button>
+                  <button @click="editItem(item.id)" type="submit" class="btn btn-primary" data-dismiss="modal">修改</button>
                   <button @click="deleteItem()" type="submit" class="btn btn-danger" data-dismiss="modal">刪除</button>
                 </div>
               </form>
@@ -81,6 +82,13 @@ export default {
   data() {
     return {
       arr: [],
+      editedData: {
+        oldName: '',
+        newName: '',
+        imageUrl: '',
+        price: 0,
+        description: '',
+      }
     };
   },
   computed: {
@@ -98,11 +106,29 @@ export default {
         .then( r => this.arr = r.data)
         .catch( r => console.log(r))
     },
-    editItem(){
+    editItem(id){
       // TODO:
       // 把form的資料取出後送到
       // process.env.VUE_APP_BACKEND_URL + "modifyFile"
       // 型別的部分要注意一下
+      let a = document.getElementById("form-"+id).getElementsByTagName("input")
+      let b = document.getElementById("form-"+id).getElementsByTagName("textarea")
+      this.editedData.oldName = a[0].placeholder
+      this.editedData.newName = a[1].value
+      this.editedData.imageUrl = a[2].value
+      this.editedData.price = a[3].value
+      this.editedData.description = b[0].value
+
+      this.$http.post(process.env.VUE_APP_BACKEND_URL + "edit",
+      {
+        oldName: this.editedData.oldName,
+        newName: this.editedData.newName,
+        imageUrl: this.editedData.imageUrl,
+        price: this.editedData.price,
+        description: this.editedData.description
+      })
+      .then( r => console.log(r))
+      .catch( r => console.log(r))
       this.getData()
     },
     deleteItem(){
@@ -117,3 +143,4 @@ export default {
 </script>
 
 <style></style>
+
