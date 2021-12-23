@@ -22,6 +22,9 @@ const routes = [
   //     name: '/'
   //   }
   // },
+
+  // 如果找 /index 的網址 會被重新導向到 名稱為 Index2333 的 下面這個路由
+  // 而這個路由顯示的是 從第三行 import 而來的 Index 元件
   { 
     path: '/',
     name: 'Index2333',
@@ -40,4 +43,5 @@ const router = createRouter({
   routes
 })
 
+// 匯出 router 物件讓 main.js 可以使用
 export default router;

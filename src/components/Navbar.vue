@@ -17,6 +17,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
+            <!-- 
+            直接將 <a></a> 取代成 <router-link></router-link>
+            class 的部分都不用變更，但是 href 要刪掉，換成 to=""
+              -->
             <router-link to="/" class="nav-link active" aria-current="page">首頁</router-link>
           </li>
         </ul>
