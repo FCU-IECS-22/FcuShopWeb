@@ -1,13 +1,12 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import axios from "axios"
-// import router from './router'
-// import router from './router'
+import router from './router'
 
-const aa = createApp(App)
+const Factory = createApp(App)
+Factory.use(router)
+Factory.config.globalProperties.$http = axios
+// Factory.use(VueRouter)
+// Factory.use(router).use(store)
 
-aa.config.globalProperties.$http = axios
-
-// aa.use(router).use(store)
-
-aa.mount('#app')
+Factory.mount('#app')
