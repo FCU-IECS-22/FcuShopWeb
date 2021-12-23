@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Admin from '@/page/Admin.vue'
 import Index from '@/page/Index.vue'
 
@@ -38,7 +38,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   linkExactActiveClass: 'active',
   routes
 })
