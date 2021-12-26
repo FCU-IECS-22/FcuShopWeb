@@ -61,7 +61,7 @@
                 </div>
                 <div class="modal-footer">
                   <button @click="editItem(item.id)" type="submit" class="btn btn-primary" data-dismiss="modal">修改</button>
-                  <button @click="deleteItem()" type="submit" class="btn btn-danger" data-dismiss="modal">刪除</button>
+                  <button @click="deleteItem(item.id)" type="submit" class="btn btn-danger" data-dismiss="modal">刪除</button>
                 </div>
               </form>
             </div>
@@ -131,14 +131,21 @@ export default {
       .catch( r => console.log(r))
       this.getData()
     },
-    deleteItem(){
+    deleteItem(id){
       // TODO:
       // 同上但是後端還沒寫
+      this.$http.post(process.env.VUE_APP_BACKEND_URL + "deleteFile",
+      {
+        id: id
+      })
+      .then( r => console.log(r))
+      .catch( r => console.log(r))
+
       this.getData()
     }
   },
 
-  
+
 };
 </script>
 
