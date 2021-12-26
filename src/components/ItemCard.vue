@@ -134,6 +134,7 @@ export default {
     deleteItem(id){
       // TODO:
       // 同上但是後端還沒寫
+      console.log("hello " + id)
       this.$http.post(process.env.VUE_APP_BACKEND_URL + "deleteFile",
       {
         id: id
