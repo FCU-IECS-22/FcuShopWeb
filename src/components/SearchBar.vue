@@ -5,7 +5,6 @@
       <button class="btn btn-outline-secondary" type="button" id="searchProduct">Search</button>
       <button class="btn btn-outline-secondary" type="button" id="cleanProduct">Clean</button>
   </div>
-  
 </template>
 
 <script>
