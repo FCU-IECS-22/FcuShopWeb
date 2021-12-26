@@ -1,5 +1,5 @@
 <template>
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -7,29 +7,29 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="https://cdn.kingstone.com.tw/resp/980x300_koboxmas12.avif" class="d-block w-100" width="80%" height="300">
+      <img class="d-block w-100" src="https://cdn.kingstone.com.tw/resp/980x300_koboxmas12.avif" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img src="https://cdn.kingstone.com.tw/resp/980x300_a2112042.avif" class="d-block w-100" width="80%" height="300">
+      <img class="d-block w-100" src="https://cdn.kingstone.com.tw/resp/980x300_a2112042.avif" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img src="https://cdn.kingstone.com.tw/resp/980x300_20211223diarydks.avif" class="d-block w-100" width="80%" height="300">
+      <img class="d-block w-100" src="https://cdn.kingstone.com.tw/resp/980x300_20211223diarydks.avif" alt="Third slide">
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
-  </button>
+  </a>
 </div>
 </template>
 
 <script>
 export default {
-  name: "Carousel"
+    name: "Carousel"
   }
 </script>
 
