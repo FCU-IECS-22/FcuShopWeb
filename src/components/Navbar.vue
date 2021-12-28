@@ -27,10 +27,10 @@
 
         <ul class="navbar-nav mb-2 mb-lg-0 d-flex not-login">
           <li class="nav-item">
-            <router-link to="/admin" class="nav-link">登入</router-link>
+            <router-link to="/login" class="nav-link">登入</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/admin" class="nav-link">註冊</router-link>
+            <router-link to="/signup" class="nav-link">註冊</router-link>
           </li>
         </ul>
 
