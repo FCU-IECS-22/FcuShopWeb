@@ -20,7 +20,7 @@
 
 <script>
 export default {
-    name: "Account",
+    name: "AA",
     methods: {
         getData(){
             this.$http.post(process.env.VUE_APP_BACKEND_URL + "sign",

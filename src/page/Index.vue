@@ -1,15 +1,13 @@
 <template>
-  <Navbar/>
   <Carousel/>
-  <SearchBar/>
+  <!-- <SearchBar/> -->
   <Card/>
 </template>
 
 <script>
 import Carousel from '@/components/Carousel.vue'
-import Navbar from '@/components/Navbar.vue'
 import Card from '@/components/ItemCard.vue'
-import SearchBar from '@/components/SearchBar.vue'
+// // import SearchBar from '@/components/SearchBar.vue'
 
 export default {
   name: "Index",
@@ -19,9 +17,8 @@ export default {
   },
   components: {
     Carousel,
-    Navbar,
     Card,
-    SearchBar,
+    // SearchBar,
   }
 }
 </script>

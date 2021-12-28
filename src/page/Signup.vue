@@ -1,10 +1,10 @@
 <template>
-  <Signup/>
+  <AA/>
 </template>
 
 <script>
 
-import Signup from '@/components/Signup.vue'
+import AA from '@/components/AA.vue'
 
 export default {
   name: "Signup",
@@ -13,7 +13,7 @@ export default {
     }
   },
   components: {
-    Signup,
+    AA,
   }
 }
 </script>
