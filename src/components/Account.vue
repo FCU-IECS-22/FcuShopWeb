@@ -14,28 +14,28 @@
         name="password"
       />
     </div>
-    <button type="submit" class="btn btn-primary loginset" id="login">Login</button>
+    <button type="submit" class="btn btn-primary loginset " id="login">登 入</button>
   </form>
 </template>
 
 <script>
 export default {
-    name: "Account",
-    methods: {
-        getData(){
-            this.$http.post(process.env.VUE_APP_BACKEND_URL + "login",
-            {
-              username: this.editedData.username,
-              password: this.editedData.password,
-            })
-            .then( r => console.log(r))
-            .catch( r => console.log(r))
+  name: "Account",
+  methods: {
+    getData(){
+      this.$http.post(process.env.VUE_APP_BACKEND_URL + "login",
+      {
+        username: this.editedData.username,
+        password: this.editedData.password,
+      })
+      .then( r => console.log(r))
+      .catch( r => console.log(r))
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
 .loginwindow{
   font-size: 30px;
   text-align: center;
@@ -43,7 +43,7 @@ export default {
   background-color:aquamarine;
   margin: auto;
   margin-top: 15px;
-  padding: 20px;
+  padding: 30px;
   border: 1px solid #000000;
 }
 .loginset{
@@ -51,7 +51,7 @@ export default {
   margin: auto;
 }
 .btn-primary{
-  width:20%;
+  width:10%;
   margin: auto;
 }
 </style>

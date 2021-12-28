@@ -142,7 +142,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .card{overflow:hidden;}
 .card img{transform:scale(1,1);transition: all 0.5s ease-out;}
 .card img:hover{transform:scale(1.1,1.1);}

@@ -106,6 +106,6 @@ export default {
   padding-right: 0 !important;
 }
 .windowset2{
-    border-radius: 0%;
+  border-radius: 0%;
 }
 </style>

@@ -26,7 +26,6 @@
 
   <div class="container">
     <h1 class="mt-3">My Shop</h1>
-
   </div>
 </template>
 
@@ -41,7 +40,6 @@ export default {
     }
   },
   components: {
-
   },
   methods: {
     backhome(){
@@ -66,6 +64,6 @@ export default {
   padding-right: 0 !important;
 }
 .windowset2{
-    border-radius: 0%;
+  border-radius: 0%;
 }
 </style>

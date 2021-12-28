@@ -14,28 +14,28 @@
         name="password"
       />
     </div>
-    <button type="submit" class="btn btn-primary signset" id="sign">sign</button>
+    <button type="submit" class="btn btn-primary signset" id="sign">註 冊</button>
   </form>
 </template>
 
 <script>
 export default {
-    name: "AA",
+    name: "Sign",
     methods: {
         getData(){
-            this.$http.post(process.env.VUE_APP_BACKEND_URL + "sign",
-            {
-              username: this.editedData.username,
-              password: this.editedData.password,
-            })
-            .then( r => console.log(r))
-            .catch( r => console.log(r))
+          this.$http.post(process.env.VUE_APP_BACKEND_URL + "sign",
+          {
+            username: this.editedData.username,
+            password: this.editedData.password,
+          })
+          .then( r => console.log(r))
+          .catch( r => console.log(r))
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
 .signwindow{
   font-size: 30px;
   text-align: center;
@@ -43,7 +43,7 @@ export default {
   background-color:bisque;
   margin: auto;
   margin-top: 15px;
-  padding: 20px;
+  padding: 30px;
   border: 1px solid #000000;
 }
 .signset{
@@ -51,7 +51,7 @@ export default {
   margin: auto;
 }
 .btn-primary{
-  width:20%;
+  width:10%;
   margin: auto;
 }
 </style>
