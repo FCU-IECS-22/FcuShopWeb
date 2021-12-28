@@ -46,23 +46,10 @@ export default {
   methods: {
     backhome(){
       var elements = document.getElementsByClassName('modal-backdrop');
-      console.log("test123")
-      console.log(elements)
       var p = elements[0].parentNode
-      console.log(p);
-      // p.classList.remove('modal-open')
-      // p.classList.style['padding-right'] = "0 px"
-      // p.style.paddingRight = "0"
-      // p.style['paddingRight'] = "0"
       p.removeAttribute("style")
       p.removeAttribute("class")
       p.removeChild(elements[0])
-      // while(elements.length > 0){
-      //   // box.parentNode.removeChild(box);
-      //   p.removeChild(elements[0])
-      // elements[0].classList.remove('modal-backdrop')
-      // }
-      // elements.classList.remove("modal-backdrop");
     }
   }
 };

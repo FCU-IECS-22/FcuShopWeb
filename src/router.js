@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Admin from '@/page/Admin.vue'
 import Index from '@/page/Index.vue'
 import Login from '@/page/Login.vue'
-import Signup from '@/page/Login.vue'
+import Signup from '@/page/Signup.vue'
 // 要用到的元件都需要匯入，匯入後需要再寫進 routes
 // 有一些 api 可以用
 // https://next.router.vuejs.org/zh/guide/
