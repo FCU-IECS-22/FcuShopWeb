@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">FCU Shop</a>
+      <a class="navbar-brand ">FCU Shop</a>
 
       <button
         class="navbar-toggler"
@@ -21,11 +21,11 @@
             直接將 <a></a> 取代成 <router-link></router-link>
             class 的部分都不用變更，但是 href 要刪掉，換成 to=""
               -->
-            <router-link to="/" class="nav-link active" aria-current="page">首頁</router-link>
+            <router-link to="/" class="nav-link active" aria-current="page" :class="isAdmin">首頁</router-link>
           </li>
         </ul>
 
-        <ul class="navbar-nav mb-2 mb-lg-0 d-flex not-login">
+        <ul class="navbar-nav mb-2 mb-lg-0 d-flex not-login" v-if="show">
           <li class="nav-item">
             <router-link to="/login" class="nav-link">登入</router-link>
           </li>
@@ -36,13 +36,10 @@
 
         <ul class="navbar-nav mb-2 mb-lg-0 d-flex is-login">
           <li class="nav-item">
-            <a class="nav-link" href="#">會員中心</a>
+            <a class="nav-link" >購物車({{num}})</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">購物車(0)</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">登出</a>
+            <a @click="logout()" class="nav-link" href=""  v-if="!show">登出</a>
           </li>
         </ul>
       </div>
@@ -80,8 +77,22 @@ export default {
   name: "Nav",
   data() {
     return {
-
+      num:0,
     }
+  },
+  computed: {
+    buy: function () {
+      return this.num
+    },
+    show: function(){
+      // if(console.log(this.$route.params.USER))
+      // console.log(this.$route.params.USER==null)
+      return this.$route.params.USER==null
+    },
+    isAdmin: function () {
+      if(this.$route.name == 'Admin') return "disabled"
+      else return ""
+    },
   },
   components: {
 
@@ -93,8 +104,18 @@ export default {
       p.removeAttribute("style")
       p.removeAttribute("class")
       p.removeChild(elements[0])
-    }
-  }
+    },
+    logout(){
+      this.num=0
+      this.$router.push("Index")
+    },
+  },
+  mounted(){
+    this.$emitter.on('test', () => {
+      this.num++
+      console.log(this.num)
+    })
+  },
 };
 </script>
 

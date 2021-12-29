@@ -25,7 +25,7 @@
           <h5 class="card-title">{{ item.name }}</h5>
           <a class="id" style="display: none">{{ item.id }}</a>
           <p class="card-text">{{ item.description }}</p>
-          <a href="#" class="btn btn-primary me-md-2">{{ item.price }}</a>
+          <button @click="plus()" class="btn btn-primary me-md-2">{{ item.price }}</button>
 
           <!-- <a href="modifyFile" class="btn btn-danger">修改</a> -->
 
@@ -105,6 +105,9 @@ export default {
       this.$http.get(process.env.VUE_APP_BACKEND_URL + "products")
         .then( r => this.arr = r.data)
         .catch( r => console.log(r))
+    },
+    plus(){
+      this.$emitter.emit('test',1)
     },
     editItem(id){
       // TODO:
