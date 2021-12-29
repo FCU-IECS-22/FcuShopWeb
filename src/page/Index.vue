@@ -2,6 +2,7 @@
   <Carousel/>
   <!-- <SearchBar/> -->
   <Card/>
+  
 </template>
 
 <script>

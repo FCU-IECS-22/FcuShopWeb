@@ -1,5 +1,5 @@
 <template>
-  <form modelAttribute="product" class="form loginwindow" action="/login" method="post">
+  <form modelAttribute="product" class="form loginwindow" id='loginForm' action="/login" method="post">
     <p>會員登入</p>
     <div class="mb-3">
       <label for="username" class="form-label ">Username</label>
@@ -14,22 +14,38 @@
         name="password"
       />
     </div>
-    <button type="submit" class="btn btn-primary loginset " id="login">登 入</button>
+    <button @click="loginFunc()" type="button" class="btn btn-primary loginset " id="login">登 入</button>
   </form>
 </template>
 
 <script>
 export default {
   name: "Account",
+  data() {
+    return {
+      arr: [],
+      editedData: {
+        username: '',
+        password: '',
+      }
+    };
+  },
   methods: {
-    getData(){
+    
+    loginFunc(){
+      console.log("哭哭")
+      let a = document.getElementById("loginForm").getElementsByTagName("input")
+      this.editedData.username = a[0].value
+      this.editedData.password = a[1].value
+
       this.$http.post(process.env.VUE_APP_BACKEND_URL + "login",
       {
         username: this.editedData.username,
-        password: this.editedData.password,
+        password: this.editedData.password
       })
       .then( r => console.log(r))
       .catch( r => console.log(r))
+
     }
   }
 }

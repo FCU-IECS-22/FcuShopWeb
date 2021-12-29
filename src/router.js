@@ -29,7 +29,7 @@ const routes = [
   { 
     path: '/',
     name: 'Index2333',
-    component: Index 
+    component: Index
   },
   { 
     path: '/admin',

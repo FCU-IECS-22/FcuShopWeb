@@ -42,7 +42,9 @@
             <a class="nav-link" href="#">購物車(0)</a>
           </li>
         </ul>
+        
       </div>
+      <!-- <h3 id="test1">你好 {{itemList[0].id}}</h3> -->
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#searchBotton">Search</button>
     </div>
   </nav>
@@ -77,13 +79,30 @@ export default {
   name: "Nav",
   data() {
     return {
-
-    }
+      arr: [],
+      editedData: {
+        oldName: '',
+        newName: '',
+        imageUrl: '',
+        price: 0,
+        description: '',
+      }
+    };
+  },
+  computed: {
+    itemList: function () { return this.arr }
   },
   components: {
-
+  },
+  mounted(){
+    this.getData()
   },
   methods: {
+    getData(){
+      this.$http.get(process.env.VUE_APP_BACKEND_URL + "products")
+      .then( r => this.arr = r.data)
+        .catch( r => console.log(r))
+    },
     backhome(){
       var elements = document.getElementsByClassName('modal-backdrop');
       var p = elements[0].parentNode
