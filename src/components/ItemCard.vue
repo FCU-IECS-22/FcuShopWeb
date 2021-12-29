@@ -2,7 +2,6 @@
 
 <!-- TODO: -->
 <!-- 新增商品的按鈕，和彈出視窗 -->
-
   <div class="container">
     <div class="mt-3 row">
       <!-- <div class="card col-4">
@@ -30,8 +29,8 @@
           <!-- <a href="modifyFile" class="btn btn-danger">修改</a> -->
 
             <!-- 按鈕開頁面 -->
-          <button type="button" class="btn btn-danger" data-toggle="modal" :data-target="'#card-' + item.id">
-            修改
+          <button type="button" class="btn btn-danger" data-toggle="modal" :data-target="'#card-' + item.id" v-if="show">
+            編輯
           </button>
         </div>
 
@@ -61,7 +60,7 @@
                 </div>
                 <div class="modal-footer">
                   <button @click="editItem(item.id)" type="submit" class="btn btn-primary" data-dismiss="modal">修改</button>
-                  <button @click="deleteItem()" type="submit" class="btn btn-danger" data-dismiss="modal">刪除</button>
+                  <button @click="deleteItem(item.id)" type="submit" class="btn btn-danger" data-dismiss="modal" >刪除</button>
                 </div>
               </form>
             </div>
@@ -92,18 +91,33 @@ export default {
     };
   },
   computed: {
-    itemList: function () { return this.arr }
+    itemList: function () { return this.arr },
+    show: function(){
+      return this.$route.params.USER=="admin"
+    },
   },
   components: {
 
   },
   mounted(){
     this.getData()
+    this.$emitter.on('reload',() => this.getData())
+    this.$emitter.on('keyword',key => this.searchData(key))
   },
   methods: {
     getData(){
       this.$http.get(process.env.VUE_APP_BACKEND_URL + "products")
         .then( r => this.arr = r.data)
+        .catch( r => console.log(r))
+    },
+    searchData(key){
+      this.$http.get(process.env.VUE_APP_BACKEND_URL + "products/"+ key)
+        .then( r => {
+          if(r.data.length == 0){
+            alert("查無符合項目!")
+            this.getData()
+          } else this.arr = r.data
+        })
         .catch( r => console.log(r))
     },
     plus(){
@@ -130,18 +144,20 @@ export default {
         price: this.editedData.price,
         description: this.editedData.description
       })
-      .then( r => console.log(r))
+      .then( () => this.getData())
       .catch( r => console.log(r))
-      this.getData()
     },
-    deleteItem(){
+    deleteItem(p){
       // TODO:
       // 同上但是後端還沒寫
-      this.getData()
-    }
-  },
-
-  
+      this.$http.post(process.env.VUE_APP_BACKEND_URL + "deleteProduct",{id: p})
+      .then( () => {
+        this.getData()
+        console.log("9999")
+        })
+      .catch( r => console.log(r))
+    },
+  }
 };
 </script>
 

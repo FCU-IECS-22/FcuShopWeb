@@ -1,5 +1,7 @@
 <template>
-  現在的使用者是{{USER}}，存到cookie就可以每一頁都拉得到了
+  <span v-if="!show">
+    現在的使用者是{{USER}}
+  </span>
   <Card/>
 </template>
 
@@ -17,6 +19,9 @@ export default {
   computed: {
     USER: function () {
       return this.$route.params.USER
+    },
+    show: function(){
+      return this.$route.params.USER==null
     },
   },
   components: {
