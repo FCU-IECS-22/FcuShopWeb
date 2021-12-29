@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent modelAttribute="product" class="form loginwindow" action="/login" method="post">
+  <form @submit.prevent modelAttribute="product" :class="isSign" class="form loginwindow" action="/login" method="post" >
     <p>會員{{path}}</p>
     <div class="mb-3">
       <label for="username" class="form-label ">Username</label>
@@ -29,6 +29,10 @@ export default {
       else if(this.$route.name == 'signup') return "註冊"
       return "System Error"
     },
+    isSign: function () {
+      if(this.$route.name == 'signup') return "Signup"
+      else return "Login"
+    },
   },
   components: {
   },
@@ -55,11 +59,16 @@ export default {
 
 
 <style scoped>
+.Login{
+  background-color:aquamarine;
+}
+.Signup{
+  background-color:blanchedalmond;
+}
 .loginwindow{
   font-size: 30px;
   text-align: center;
   width:40%;
-  background-color:aquamarine;
   margin: auto;
   margin-top: 15px;
   padding: 30px;
