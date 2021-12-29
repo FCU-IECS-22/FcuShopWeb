@@ -1,50 +1,46 @@
 <template>
-
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <!-- <ol class="carousel-indicators">
-      <li
-        data-target="#carouselExampleIndicators"
-        data-slide-to="0"
-        class="active"
-      ></li>
+  <div id="carouselExampleIndicators" class="carousel slide mt-3" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol> -->
+    </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgICAcICAgICAgHBwoHBwcHCA8ICQcKFREWFhQRExMYHSggGBolHxMTITEhJSkrLi46Fx8zODMsNygtLisBCgoKDg0NDg0NDysZFRk3KysrLSs3KysrLSs3KzcrKysrKystKysrKysrLSsrKysrKysrKysrKysrKysrKysrK//AABEIAKgBLQMBIgACEQEDEQH/xAAZAAEBAQEBAQAAAAAAAAAAAAAAAQIDBAf/xAAmEAEAAgEDBAEEAwAAAAAAAAAAARECEiFRAzFBkWEEUnGBExSh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD4aAAAAAAAAAAAACxEz2iQQa0ZcSaMuAZF0zxPooEFqeJXTPAMjWjLg05cAyLU8SgAAAAAAAAAAAAAAAAAAAAAAAACxEztBEXNOkRUV7+QSMYj5n/GrQVVstkBqy2QRq0tAFstEsGrNp8M2WBOPDMxTVrtKDmLMIAAAAAAAAAAAAAAAAAAADWMXP4BrGKj5lbSRQEtQBmRBbLQAsAAEBRAFEAVlUAAAAAAAAAAAAAAAAAAAbx7MNgSgAAAAACAAAAAAgAAAAAAAAAAAAAAAAAAAAAACx3ayZhZAEAVAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAWFSFkEAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWCUWQQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUBAUEFQAFBAAAUEFpaBkWloGRqp4n9NR08p7Y5egcx1jo9T7JX+v1Pt9yDiOnU6WeG8xtPmN3MAAAAAAAAAAAGsaBIhaa2NgZoppdgYopspRiim6KBiim6KQYopuigY0rQKGldICt9PpZZzWMW9EfRfdn+ohAR0j6Xpx8/mV/ixjtjj6UA0149G4KhbGWcx4AHHPqzMTE9p8PNlXgEVkBAAAAAAAAAUAAAFABYsAbx1NxjM7VvIAkxUzE+NgAKQAf/2Q==" class="d-block w-100" width="100%" height="100" alt="" />
+        <img class="d-block w-100" src="https://cdn.kingstone.com.tw/resp/980x300_koboxmas12.avif" alt="First slide">
       </div>
       <div class="carousel-item">
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgICAcICAcIBwcICAoGBwcHBw8ICQYWFREiIhURExMYHSggGBolGxMTITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDw0NDysZFRkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAKgBLAMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAAAAQQDBv/EABoQAQACAwEAAAAAAAAAAAAAAAAEsgM0dAH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABURAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIRAxEAPwD10/bl9GWzO0T9uX0ZbM4ACAAC+CKAAAAAoKAAAAAAAAAAAAIKAgCAAAAIAAAA7z9uX0ZbM7RP25fRlszqoAgAAKigAAoCgAAAAAAAAAAAAAAACCoAAgAAACAAO8/bl9GWzO0T9uX0ZbM6qAIAAKAAACgKAAAAAAAAAAAAAAAACKAgCAAAAAADvP25fRlsztE/bl9GWzOtABABfAABAAVQFAAAAAAAAAAAAAAAAAAEAQAAAAAAd5+3L6Mtmdon7cvoy2Z1oAICooAAAAKAoAAAAAAAAAAAAAAAAAAIqIgC+ggAoADvP25fRlsztE/bl9GWzOtABAU8BAAUABRFAAUAAAABQEFAAAQUBFQAAAARBD0AUQAAV3n7cvoy2Z2ifty+jLZnAABfABAAUABQBAAUAUAAFAAAAAAEABQQAABEEVAAAAAd5+3L6Mtmdon7cvoy2ZxQFBFAAAAABTwEABQBQUAAAAAAAQAFBAAAAEQRT0EBQEUB2n7cvoy2Z2ifty+jLZnFF8RQABAAUABfABAAUAUVPBQAABFAE9AUAAAEF9QABED0PQBFAAB2n7cvoy2Z2ifty+jLZnFFQBQBAAUAAVFEABQFUAAAABABUAFAAAD1AAARAD0EVAFEAd5+3L6MtmcBQAFAEABQABUBFAVQABQBAAAABQAABAAAAARBAAAAAB//2Q==" class="d-block w-100" width="100%" height="100" alt="" />
+        <img class="d-block w-100" src="https://cdn.kingstone.com.tw/resp/980x300_a2112042.avif" alt="Second slide">
       </div>
       <div class="carousel-item">
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgIBwcHCAgHBwcFBgoGBwYFBQ8ICQYWIBEWFhUREx8YHSggGCYlGxMfITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDg0NDysZFRkrKysrLSsrKysrKysrNysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAOEA4QMBIgACEQEDEQH/xAAWAAEBAQAAAAAAAAAAAAAAAAAAAQf/xAAVEAEBAAAAAAAAAAAAAAAAAAAAAf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A28AUAAABBUAAAAQAAAAAUEUFAAAAABAAAAAAUAAAAEVAAAAAAAAAFAAAAAAAABAAAAAAUAAAAAAAAAARQAAAAAAAAAAAAAAQAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAABAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAEABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAQUBBQEFAQVAAAAAAAAUEAAAAAAAAAAABQBAAUAAAEABQABFAQAAAAAAUBAAAAAAAAURRAAAAAAAAAAAABFBUUAEUAAARQAAEFQAABUUAAQAAAAAAAAAAAAAFAAABAAUABBUAAAABQBAAAAAAAAAAAAAAAAAAAAAAVAAAAAAUAQAAAAAAAAAAAAAAAAAAAABBQAAAAAFAEAAAAAAAAAAAAAAAAAAAQVUAAAAAAAFgAgAAAAAAAAAAAAAAAAAKgAAAAAAAP/2Q==" class="d-block w-100" width="100%" height="100" alt="" />
+        <img class="d-block w-100" src="https://cdn.kingstone.com.tw/resp/980x300_20211223diarydks.avif" alt="Third slide">
       </div>
     </div>
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-target="#carouselExampleIndicators"
-      data-slide="prev"
-    >
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
-    </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-target="#carouselExampleIndicators"
-      data-slide="next"
-    >
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
-    </button>
+    </a>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+    name: "Carousel"
+  }
 </script>
 
-<style>
+<style scoped>
+.carousel-control-next, .carousel-control-prev{
+  width: 5%;
+  opacity:0.1;
+}
+.carousel{
+  margin: auto;
+  width:60%;
+  height:80%;
+}
 </style>

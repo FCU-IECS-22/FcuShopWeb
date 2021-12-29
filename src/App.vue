@@ -1,16 +1,19 @@
 <template>
   <!-- <Index/> -->
   <!-- 舉例用的頁面 -->
+  <Navbar/>
   <router-view></router-view>
 </template>
 
 <script>
+import Navbar from './components/Navbar.vue'
 // import Index from './page/Index.vue'
 
 export default {
   name: 'App',
   components: {
-    // Index
+    Navbar
+    //Index
   }
 }
 </script>
