@@ -41,6 +41,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#">購物車(0)</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">登出</a>
+          </li>
         </ul>
       </div>
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#searchBotton">Search</button>

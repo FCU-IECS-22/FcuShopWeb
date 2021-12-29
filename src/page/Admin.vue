@@ -1,10 +1,9 @@
 <template>
-  <Navbar/>
+  現在的使用者是{{USER}}，存到cookie就可以每一頁都拉得到了
   <Card/>
 </template>
 
 <script>
-import Navbar from '@/components/Navbar.vue'
 import Card from '@/components/ItemCard.vue'
 
 
@@ -15,8 +14,12 @@ export default {
     return {
     }
   },
+  computed: {
+    USER: function () {
+      return this.$route.params.USER
+    },
+  },
   components: {
-    Navbar,
     Card,
   }
 }
