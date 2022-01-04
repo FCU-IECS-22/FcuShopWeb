@@ -17,7 +17,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <!-- 
+            <!--
             直接將 <a></a> 取代成 <router-link></router-link>
             class 的部分都不用變更，但是 href 要刪掉，換成 to=""
               -->
@@ -36,7 +36,7 @@
 
         <ul class="navbar-nav mb-2 mb-lg-0 d-flex is-login">
           <li class="nav-item">
-            <a class="nav-link" >購物車({{num}})</a>
+            <router-link to="/cart" class="nav-link">購物車({{num}})</router-link>
           </li>
           <li class="nav-item">
             <a @click="logout()" class="nav-link" href=""  v-if="!show">登出</a>
@@ -161,7 +161,7 @@ export default {
       })
       .then( () => this.$emitter.emit('reload',1))
       .catch( r => console.log(r))
-      
+
       this.arr.name= ""
       this.arr.img_url= ""
       this.arr.price= 0
@@ -169,10 +169,10 @@ export default {
     }
   },
   mounted(){
-    this.$emitter.on('test', () => {
-      this.num++
-      console.log(this.num)
-    })
+      this.$emitter.on('cartNum',()=>{
+        this.num++
+        console.log(this.num)
+      })
   },
 };
 </script>

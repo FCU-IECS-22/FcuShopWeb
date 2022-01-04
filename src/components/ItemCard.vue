@@ -12,19 +12,19 @@
           <p class="card-text">
             《瑪利歐派對 超級巨星》中包含從歷代《瑪利歐派對》中嚴選出來的「雙陸遊戲」以及「小遊戲」。雙陸遊戲：如「碧姬公主的生日蛋糕」和「太空樂園」等。
           </p>
-          <a href="#" class="btn btn-primary me-md-2">1790</a
-          ><a href="modifyFile" class="btn btn-danger">修改</a>
+          <a href="#" class="btn btn-primary me-md-2">1790</a>
+          <a href="modifyFile" class="btn btn-danger">修改</a>
         </div>
       </div> -->
 
       <!-- 範例卡片 -->
       <div class="card col-4" v-for="item in itemList" :key="item.id">
         <img :src="item.imageUrl" class="card-img-top" alt="瑪利歐派對 超級巨星"/>
-        <div class="card-body">
+          <div class="card-body">
           <h5 class="card-title">{{ item.name }}</h5>
           <a class="id" style="display: none">{{ item.id }}</a>
           <p class="card-text">{{ item.description }}</p>
-          <button @click="plus()" class="btn btn-primary me-md-2">{{ item.price }}</button>
+          <button @click="plus(item.id)" class="btn btn-primary me-md-2">{{ item.price }}</button>
 
           <!-- <a href="modifyFile" class="btn btn-danger">修改</a> -->
 
@@ -87,7 +87,10 @@ export default {
         imageUrl: '',
         price: 0,
         description: '',
-      }
+      },
+      cartItems: [
+
+      ],
     };
   },
   computed: {
@@ -120,8 +123,21 @@ export default {
         })
         .catch( r => console.log(r))
     },
-    plus(){
-      this.$emitter.emit('test',1)
+    plus(id){
+      const findItems = this.cartItems.find(x => x.id === id)
+      if(findItems){
+        findItems.hitTimes++
+      }else{
+        console.log("not found " + id)
+        const item = {
+          id : id,
+          hitTimes: 1
+        }
+        this.cartItems.push(item)
+      }
+      this.$emitter.emit('cartNum',1)
+      localStorage.cartItems = JSON.stringify(this.cartItems);
+
     },
     editItem(id){
       // TODO:
