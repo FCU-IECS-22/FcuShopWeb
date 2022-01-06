@@ -1,30 +1,28 @@
 <template>
-    <p>{{cartItems}}</p>
+  <div class="container">
+    <div class="card text-white bg-dark my-3 ">
+      <!-- 範例卡片 -->
+      <div class="row g-0" v-for="(item,index) in itemList" :key="item.id" :id="'card-' + item.id">
 
-<div class="container">
-  <div class="card text-white bg-dark mb-3">
-    <!-- 範例卡片 -->
-    <div class="row g-0" v-for="(item,index) in itemList" :key="item.id" :id="'card-' + item.id">
+        <div class="col-md-4">
+          <img :src="item.imageUrl" class="card-img-top" alt="瑪利歐派對 超級巨星"/>
+        </div>
 
-      <div class="col-md-4">
-        <img :src="item.imageUrl" class="card-img-top" alt="瑪利歐派對 超級巨星"/>
-      </div>
+        <div class="col-md-8" >
+          <div class="card-body">
+            <h5 class="card-title">{{ item.name }}</h5>
+            <a class="id" style="display: none">{{ item.id }}</a>
+            <p class="card-text">{{ item.description }}</p>
+            <p>訂購數量：{{cartItems[index].hitTimes}}</p>
+            <button @click="remove(item.id)" class="btn btn-primary me-md-2 btn-danger">移除此商品</button>
 
-      <div class="col-md-8" >
-        <div class="card-body">
-          <h5 class="card-title">{{ item.name }}</h5>
-          <a class="id" style="display: none">{{ item.id }}</a>
-          <p class="card-text">{{ item.description }}</p>
-          <p>訂購數量：{{cartItems[index].hitTimes}}</p>
-          <button @click="remove(item.id)" class="btn btn-primary me-md-2 btn-danger">移除此商品</button>
-
+          </div>
         </div>
       </div>
-    </div>
-    <router-link @click="clear()" to="/"  class="btn btn-primary me-md-2 btn-primary">送出訂單</router-link>
+      <router-link @click="clear()" to="/"  class="btn btn-primary me-md-2 btn-primary">送出訂單</router-link>
 
+    </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -52,7 +50,6 @@ export default {
     // console.log(this.cartItems)
   },
   methods: {
-
     getCartData(){
       if(localStorage.cartItems){
         this.cartItems = JSON.parse(localStorage.cartItems)
@@ -70,9 +67,23 @@ export default {
       }
     },
     remove(id){
-      const find = document.getElementById('card-' + id)
-      console.log(find)
-      find.style.display = "none"
+      var am = 0
+      // for rendering's data
+      this.arr.forEach((a, i, array) => {
+        if(a.id === id) array.splice(i, 1)
+      })
+      // for storage
+      var temp = JSON.parse(localStorage.getItem("cartItems"))
+      temp.forEach((a, i, array) => {
+        if(a.id === id) {
+          am = a.hitTimes
+          array.splice(i, 1)
+        }
+      })
+      localStorage.setItem('cartItems', JSON.stringify(temp))
+      // for Vuex update
+      // this.$emitter.emit('cartNum',1)
+      this.$store.dispatch('decrease', am)
     },
     clear(){
       localStorage.cartItems = "";

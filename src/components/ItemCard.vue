@@ -135,7 +135,8 @@ export default {
         }
         this.cartItems.push(item)
       }
-      this.$emitter.emit('cartNum',1)
+      // this.$emitter.emit('cartNum',1)
+      this.$store.dispatch('increase')
       if(this.cartItems){
         localStorage.cartItems = JSON.stringify(this.cartItems);
       }

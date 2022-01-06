@@ -36,7 +36,7 @@
 
         <ul class="navbar-nav mb-2 mb-lg-0 d-flex is-login">
           <li class="nav-item">
-            <router-link to="/cart" class="nav-link">購物車({{num}})</router-link>
+            <router-link to="/cart" class="nav-link">購物車({{ cartNum }})</router-link>
           </li>
           <li class="nav-item">
             <a @click="logout()" class="nav-link" href=""  v-if="!show">登出</a>
@@ -101,8 +101,6 @@
 </template>
 
 <script>
-// TODO:
-// 搜尋功能
 export default {
   name: "Nav",
   data() {
@@ -118,6 +116,9 @@ export default {
     }
   },
   computed: {
+    cartNum () {
+      return this.$store.state.cartNum
+    },
     buy: function () {
       return this.num
     },
@@ -169,10 +170,7 @@ export default {
     }
   },
   mounted(){
-      this.$emitter.on('cartNum',()=>{
-        this.num++
-        console.log(this.num)
-      })
+    this.$emitter.on('cartNum', () => {})
   },
 };
 </script>

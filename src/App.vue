@@ -14,6 +14,14 @@ export default {
   components: {
     Navbar
     //Index
+  },
+  mounted(){
+    if("cartItems" in localStorage){
+      // var a = JSON.parse(localStorage.getItem("cartItems"))
+      var temp = 0
+      JSON.parse(localStorage.getItem("cartItems")).forEach(a => temp += a.hitTimes)
+      this.$store.dispatch('setup', temp)
+    }
   }
 }
 </script>
