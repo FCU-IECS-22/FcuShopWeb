@@ -46,8 +46,6 @@ export default {
   },
   mounted(){
     this.getCartData()
-
-    // console.log(this.cartItems)
   },
   methods: {
     getCartData(){
@@ -86,7 +84,7 @@ export default {
       this.$store.dispatch('decrease', am)
     },
     clear(){
-      localStorage.cartItems = "";
+      localStorage.removeItem('cartItems');
       console.log(localStorage.cartItems)
       location.href = "/"
     }

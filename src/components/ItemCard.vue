@@ -104,6 +104,7 @@ export default {
   },
   mounted(){
     this.getData()
+    this.getCartHistory()
     this.$emitter.on('reload',() => this.getData())
     this.$emitter.on('keyword',key => this.searchData(key))
   },
@@ -122,6 +123,11 @@ export default {
           } else this.arr = r.data
         })
         .catch( r => console.log(r))
+    },
+    getCartHistory(){
+      if(localStorage.cartItems){
+        this.cartItems = JSON.parse(localStorage.cartItems)
+      }
     },
     plus(id){
       const findItems = this.cartItems.find(x => x.id === id)
