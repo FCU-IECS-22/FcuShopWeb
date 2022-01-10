@@ -1,4 +1,8 @@
-# fcushopweb
+# fcushopweb（前端部分）
+
+帳號對應表：
+fcu-d0843556 => D0843556 陳子淵
+
 
 #### 如果覺得 heroku 後端反應過慢
 在根目錄下新增 **`.env.local`** 並在檔案寫入
