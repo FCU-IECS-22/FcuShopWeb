@@ -1,4 +1,4 @@
-# fcushopweb（前端部分）
+# fcushopweb（前端Vue部分）
 
 帳號對應表：
 fcu-d0843556 => D0843556 陳子淵
