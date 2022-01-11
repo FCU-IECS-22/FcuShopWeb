@@ -32,3 +32,5 @@ npm run serve
 or
 yarn serve
 ```
+投影片：
+https://docs.google.com/presentation/d/1nWHkXlS47yxlrfkUAc-AwDmvR52EYIDNPgmSfHnug0c/edit#slide=id.p
